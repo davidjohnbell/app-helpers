@@ -5,3 +5,7 @@ export function isObject(value: unknown): value is object {
 export function isNotEmptyObject(value: unknown): boolean {
     return isObject(value) && Object.keys(value).length === 0
 }
+
+export function prop<T, K extends keyof T>(obj: T, key: K): T[K] {
+    return obj[key]
+}

@@ -29,12 +29,12 @@ export function isDateString(value: unknown): boolean {
 }
 
 export function isAlpha(value: unknown): boolean {
-    const regex = /[a-zA-Z]*/g
+    const regex = /^[a-zA-Z]*$/g
     return isString(value) && regex.test(value)
 }
 
 export function isAlphanumeric(value: unknown): boolean {
-    const regex = /[0-9a-zA-Z]*/g
+    const regex = /^[0-9a-zA-Z]*$/g
     return isString(value) && regex.test(value)
 }
 

@@ -76,7 +76,7 @@ export class Queue<T> {
         let removed: Array<T> = []
         items.forEach(item => {
             let rem = this.remove(item)
-            if(rem) removed.push(rem)
+            if(rem !== null) removed.push(rem)
         })
         return removed
     }

@@ -20,7 +20,3 @@ export function curry<T>(f: Fn<T>, ...args: any[]): Fn<T> | T {
     const curried =  f.length <= args.length ? f(...args) : (...more: any[]) => curry(f, ...args, ...more) as any
     return curried as Fn<T> | T
 }
-
-export function prop<T, K extends keyof T>(obj: T, key: K): T[K] {
-    return obj[key]
-}

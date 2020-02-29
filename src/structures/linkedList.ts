@@ -76,6 +76,8 @@ export class LinkedList<T> {
         }
         else if(previous) previous.next = null
         else if(next) next.previous = null
+        if(node === this.head) this.head = node.next
+        else if(node === this.tail) this.tail = node.previous
         return node
     }
 

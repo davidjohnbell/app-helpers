@@ -1,5 +1,6 @@
 import { isString } from './string'
 import { isNumber } from './number'
+import { isNotEmptyObject } from './object'
 
 export function isDefined(value: unknown): boolean {
     return value !== undefined && value !== null
@@ -14,11 +15,14 @@ export function notEquals(value: unknown, comparison: unknown): boolean {
 }
 
 export function isEmpty(value: unknown): boolean {
-    return value === '' || value === null || value === undefined
+    if(isString(value) || Array.isArray(value)) return value.length == 0
+    else if(isNotEmptyObject(value)) return true  
+    else if(!isDefined(value)) return true
+    else return false
 }
 
 export function isNotEmpty(value: unknown): boolean {
-    return value !== '' && isDefined(value)
+    return !isEmpty(value)
 }
 
 export function length(value: unknown, min: number, max?: number): boolean {

@@ -2,14 +2,15 @@ import { describe, it } from 'mocha'
 import { expect } from 'chai'
 import { isIn, arrayMaxSize, arrayMinSize, arrayNotEmpty, arrayUnique, isNotIn } from '../../src/helpers/array'
 
-describe('array', () => {
+describe('array', function() {
     const unique = [1, 2, 3]
     const notUnique = [-1, 2, -1]
     const empty = []
 
-    it('isIn', () => {
+    it('isIn', function() {
+        expect(isIn(1, unique)).eq(true)
+        expect(isIn(3, unique)).eq(true)
         expect(isIn(0, unique)).eq(false)
-        expect(isIn(2, unique)).eq(true)
         expect(isIn(4, unique)).eq(false)
     })
 
@@ -19,23 +20,23 @@ describe('array', () => {
         expect(arrayMaxSize(unique, 2)).eq(false)
     })
 
-    it('arrayMinSize', () => {
-        expect(arrayMinSize(unique, 9)).eq(true)
-        expect(arrayMinSize(unique, 10)).eq(true)
-        expect(arrayMinSize(unique, 11)).eq(false)
+    it('arrayMinSize', function() {
+        expect(arrayMinSize(empty, 0)).eq(true)
+        expect(arrayMinSize(unique, 3)).eq(true)
+        expect(arrayMinSize(unique, 4)).eq(false)
     })
 
-    it('arrayNotEmpty', () => {
+    it('arrayNotEmpty', function() {
         expect(arrayNotEmpty(unique)).eq(true)
         expect(arrayNotEmpty(empty)).eq(false)
     })
 
-    it('arrayUnique', () => {
+    it('arrayUnique', function() {
         expect(arrayUnique(unique)).eq(true)
         expect(arrayUnique(notUnique)).eq(false)
     })
 
-    it('isNotIn', () => {
+    it('isNotIn', function() {
         expect(isNotIn(0, unique)).eq(true)
         expect(isNotIn(2, unique)).eq(false)
         expect(isNotIn(4, unique)).eq(true)

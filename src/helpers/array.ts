@@ -1,9 +1,9 @@
 export function isIn(value: unknown, possibleValues: unknown[]): boolean {
-    return Array.isArray(value) && possibleValues.some(possibleValue => possibleValue === value)
+    return Array.isArray(possibleValues) && possibleValues.some(possibleValue => possibleValue === value)
 }
 
 export function isNotIn(value: unknown, possibleValues: unknown[]): boolean {
-    return !possibleValues.some(possibleValue => possibleValue === value)
+    return Array.isArray(possibleValues) && !possibleValues.some(possibleValue => possibleValue === value)
 }
 
 export function arrayNotEmpty(array: unknown): boolean {
