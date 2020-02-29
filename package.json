@@ -1,0 +1,17 @@
+{
+  "name": "app-helpers",
+  "version": "1.0.0",
+  "description": "common utilities that can be used across a variety of projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "utils"
+  ],
+  "author": "davidjohnbell",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^3.8.3"
+  }
+}
