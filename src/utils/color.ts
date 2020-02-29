@@ -75,12 +75,12 @@ export function cmykToRgb(cmyk: CMYK) {
 }
 
 export function hexToRgb(hex: string): RGB {
-    hex = this.replaceShorthand(hex)
+    hex = replaceShorthandHex(hex)
     let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
     if(result) {
-        let r = parseInt(result[1], this.COLOR_BASE)
-        let g = parseInt(result[2], this.COLOR_BASE)
-        let b = parseInt(result[3], this.COLOR_BASE)
+        let r = parseInt(result[1], COLOR_BASE)
+        let g = parseInt(result[2], COLOR_BASE)
+        let b = parseInt(result[3], COLOR_BASE)
         return { r, g, b }
     }
     else throw new Error('illegal argument')

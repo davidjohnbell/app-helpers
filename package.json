@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "description": "common utilities that can be used across a variety of projects",
     "scripts": {
-        "build": "tsc src/index.ts",
-        "test": "npm run build && mocha -r ts-node/register tests/**/*.test.ts"
+        "build": "tsc",
+        "test": "mocha -r ts-node/register tests/**/*.test.ts"
     },
     "keywords": [
         "utils"
