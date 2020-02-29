@@ -6,16 +6,17 @@
         "pretty": true,
         "strict": true,
         "alwaysStrict": true,
-        "noImplicitThis": false,
+        "noImplicitThis": true,
         "noUnusedLocals": true,
-        "strictNullChecks": false,
-        "noUnusedParameters": false,
+        "strictNullChecks": true,
+        "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
         "baseUrl": ".",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "esModuleInterop": true,
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "lib": [ "ESNext" ],
+        "moduleResolution": "Node"
     }
 }
