@@ -80,6 +80,7 @@ export function switchMap<T, U>(observableT: Observable<T>, observableU: Observa
             next: () => {
                 unsubU = observableU({
                     next: observer.next,
+                    error: observer.error
                 })
             },
             complete: observer.complete,

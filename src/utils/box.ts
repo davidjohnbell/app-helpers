@@ -15,7 +15,9 @@ export function adjacent(a: Box, b: Box): boolean {
 
 export function union(a: Box, b: Box): Box | null {
     if(!intersects(a, b)) return null
-    return {
+    else if(contains(a, b)) return copy(b)
+    else if(contains(b, a)) return copy(a)
+    else return {
         x: Math.max(a.x, b.x),
         y: Math.max(a.y, b.y),
         w: Math.min(a.x + a.w - b.x, b.x + b.w - a.x),
@@ -43,4 +45,13 @@ export function canFit(a: Box, b: Box): boolean {
     const w = b.w <= a.w
     const h = b.h <= a.h
     return w && h
+}
+
+function copy(a: Box) {
+    return {
+        x: a.x,
+        y: a.y,
+        w: a.w,
+        h: a.h
+    }
 }

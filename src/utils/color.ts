@@ -16,8 +16,7 @@ export const COLOR_DEPTH = 255
 
 export function mix(hexs: string[]): string {
     let cmyk = hexs
-        .map(hex => hexToRgb(hex))
-        .map(rgb => rgbToCmyk(rgb))
+        .map(hex => rgbToCmyk(hexToRgb(hex)))
         .reduce((acc, cur) => {
             acc.c += cur.c
             acc.m += cur.m
@@ -29,24 +28,16 @@ export function mix(hexs: string[]): string {
     return rgbToHex(cmykToRgb(cmyk))
 }
 
-export function opposite(hex: string): string {
-    let rgb = hexToRgb(hex)
-    let r = Math.round(Math.sqrt(COLOR_DEPTH - rgb.r))
-    let g = Math.round(Math.sqrt(COLOR_DEPTH - rgb.g))
-    let b = Math.round(Math.sqrt(COLOR_DEPTH - rgb.b))
-    return rgbToHex({ r, g, b })
-}
-
 export function rgbToHex(rgb: RGB) {
     let rHex = channelToHex(rgb.r)
     let gHex = channelToHex(rgb.g)
     let bHex = channelToHex(rgb.b)
-    return `#${rHex}${gHex}${bHex}`
+    return `#${rHex}${gHex}${bHex}`.toUpperCase()
 }
 
 export function channelToHex(channel: number) {
     let hex = channel.toString(COLOR_BASE)
-    return hex.length == 1 ? '0' + hex : hex
+    return (hex.length == 1 ? '0' + hex : hex).toUpperCase()
 }
 
 export function rgbToCmyk(rgb: RGB): CMYK {
@@ -96,5 +87,5 @@ export function randomHexColor(): string {
 
 export function replaceShorthandHex(hex: string): string {
     let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
-    return hex.replace(shorthandRegex, (_, r, g, b) => r + r + g + g + b + b)
+    return hex.replace(shorthandRegex, (_, r, g, b) => r + r + g + g + b + b).toUpperCase()
 }

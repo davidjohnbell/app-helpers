@@ -1,7 +1,7 @@
 export type NextFunction = () => void
 export type Stack<T> = (context: T) => void
-export type Use<T> = (middleware: Middleware<T>) => void
 export type Middleware<T> = (context: T, next: NextFunction) => any
+type Use<T> = (middleware: Middleware<T>) => void
 export function middleware<T>(...middlewares: Array<Middleware<T>>): Stack<T> {
     let stack: Stack<T> = () => { }
     let use: Use<T> = middleware => {
