@@ -2,15 +2,17 @@
     "name": "app-helpers",
     "version": "1.0.0",
     "description": "common utilities that can be used across a variety of projects",
-    "scripts": {
-        "build": "tsc",
-        "test": "npm run build && mocha dist/tests/**/*.test.js"
-    },
+    "author": "davidjohnbell",
+    "license": "MIT",
     "keywords": [
         "utils"
     ],
-    "author": "davidjohnbell",
-    "license": "MIT",
+    "main": "./lib/main.js",
+    "types": "./lib/main.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "test": "npm run build && mocha lib/tests/**/*.test.js"
+    },
     "devDependencies": {
         "@types/chai": "^4.2.9",
         "@types/mocha": "^7.0.1",

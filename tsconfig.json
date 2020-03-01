@@ -2,7 +2,7 @@
     "compilerOptions": {
         "module": "CommonJS",
         "target": "ES6",
-        "outDir": "dist",
+        "outDir": "lib",
         "sourceMap": false,
         "pretty": true,
         "strict": true,
@@ -11,6 +11,7 @@
         "noUnusedLocals": true,
         "strictNullChecks": true,
         "noUnusedParameters": true,
+        "declaration": true,
         "noFallthroughCasesInSwitch": true,
         "baseUrl": ".",
         "experimentalDecorators": true,
