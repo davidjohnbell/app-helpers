@@ -1,5 +1,3 @@
-import { equals } from './common'
-
 export function isNumber(value: unknown, allowInfinity?: boolean, allowNaN?: boolean): value is number {
     if (!(value instanceof Number) && typeof value !== 'number') return false
     else if(!allowInfinity && (value === Infinity || value === -Infinity)) return false
@@ -8,7 +6,7 @@ export function isNumber(value: unknown, allowInfinity?: boolean, allowNaN?: boo
 }
 
 export function isDivisibleBy(value: unknown, num: number): boolean {
-    if(isNumber(value)) return equals(value % num, 0)
+    if(isNumber(value)) return value % num === 0
     else return false
 }
 
