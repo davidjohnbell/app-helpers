@@ -1,5 +1,5 @@
 {
-    "name": "app-helpers",
+    "name": "@davidjohnbell/app-helpers",
     "version": "1.0.0",
     "description": "common utilities that can be used across a variety of projects",
     "author": "davidjohnbell",
