@@ -50,3 +50,35 @@ export function isLowerCase(value: unknown): boolean {
 export function isUpperCase(value: unknown): boolean {
     return isString(value) && value.toUpperCase() === value
 }
+
+/**
+ * @description Levenshtein distance is a string metric for measuring the difference 
+ * between two sequences. Informally, the Levenshtein distance between two 
+ * words is the minimum number of single-character edits required to 
+ * change one word into the other. The distance between the two words
+ * is returned.
+ */
+export function levenshteinDistance(a: string, b: string): number {
+    if(a.length == 0) return b.length
+    if(b.length == 0) return a.length
+
+    let matrix: number[][] = []
+    for(let i = 0; i < b.length; i++) {
+        matrix[i] = [i]
+    }
+    for(let j = 0; j < a.length; j++) {
+        matrix[0][j] = j
+    }
+    for(let i = 1; i < b.length; i++) {
+        for(let j = 1; j < a.length; j++) {
+            if(b.charAt(i - 1) == a.charAt(j - 1)) matrix[i][j] = matrix[i - 1][j - 1]
+            else {
+                const substitution = matrix[i - 1][j - 1] + 1
+                const insertion = matrix[i][j - 1] + 1
+                const deletion = matrix[i - 1][j] + 1
+                matrix[i][j] = Math.min(substitution, Math.min(insertion, deletion))
+            }
+        }
+    }
+    return matrix[b.length - 1][a.length - 1]
+}

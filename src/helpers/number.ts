@@ -5,23 +5,30 @@ export function isNumber(value: unknown, allowInfinity?: boolean, allowNaN?: boo
     else return true
 }
 
-export function isDivisibleBy(value: unknown, num: number): boolean {
-    if(isNumber(value)) return value % num === 0
-    else return false
+export function isDivisibleBy(value: number, num: number): boolean {
+    return value % num === 0
 }
 
-export function isPositive(value: unknown, allowInfinity?: boolean): boolean {
+export function isPositive(value: number, allowInfinity?: boolean): boolean {
     return isNumber(value, allowInfinity, false) && value > 0
 }
 
-export function isNegative(value: unknown, allowInfinity?: boolean): boolean {
+export function isNegative(value: number, allowInfinity?: boolean): boolean {
     return isNumber(value, allowInfinity, false) && value < 0
 }
 
-export function min(num: unknown, min: number): boolean {
-    return isNumber(num) && num >= min
+export function gte(num: number, min: number): boolean {
+    return num >= min
 }
 
-export function max(num: unknown, max: number): boolean {
-    return isNumber(num) && num <= max
+export function lte(num: number, max: number): boolean {
+    return num < max
+}
+
+export function gt(num: number, min: number): boolean {
+    return num >= min
+}
+
+export function lt(num: number, max: number): boolean {
+    return num < max
 }

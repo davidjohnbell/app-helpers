@@ -24,6 +24,9 @@ In the `Helpers` namespace you'll find common one-liners and validations. All he
     * arrayNotEmpty
     * arrayMinSize
     * arrayMaxSize
+    * zip
+    * binaryInsert
+    * binarySearch
 * boolean
     * isBoolean
 * common
@@ -38,8 +41,8 @@ In the `Helpers` namespace you'll find common one-liners and validations. All he
 * date
     * future
     * isDate
-    * minDate
-    * maxDate
+    * before
+    * after
 * function
     * isFunction
     * compose
@@ -50,8 +53,10 @@ In the `Helpers` namespace you'll find common one-liners and validations. All he
     * isDivisibleBy
     * isPositive
     * isNegative
-    * min
-    * max
+    * gte
+    * gt
+    * lte
+    * lt
 * object
     * isObject
     * isNotEmptyObject
@@ -67,6 +72,11 @@ In the `Helpers` namespace you'll find common one-liners and validations. All he
     * isEmail
     * isLowerCase
     * isUpperCase
+    * levenshteinDistance
+* math
+    * normalize
+    * rouletteWheel
+    * randomBetween
 
 ### Structures
 
@@ -168,9 +178,3 @@ See also the list of [contributors](https://github.com/davidjohnbell/utils-and-h
 ## License
 
 This project is licensed under the MIT License
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc

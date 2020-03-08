@@ -1,10 +1,11 @@
 import { describe, it } from 'mocha'
 import { expect } from 'chai'
-import { isIn, arrayMaxSize, arrayMinSize, arrayNotEmpty, arrayUnique, isNotIn } from '../../src/helpers/array'
+import { isIn, arrayMaxSize, arrayMinSize, arrayNotEmpty, arrayUnique, isNotIn, zip, binaryInsert, binarySearch } from '../../src/helpers/array'
 
 describe('array', function() {
     const unique = [1, 2, 3]
     const notUnique = [-1, 2, -1]
+    const zipped = [[1, -1], [2, 2], [3, -1]]
     const empty = []
 
     it('isIn', function() {
@@ -40,5 +41,30 @@ describe('array', function() {
         expect(isNotIn(0, unique)).eq(true)
         expect(isNotIn(2, unique)).eq(false)
         expect(isNotIn(4, unique)).eq(true)
+    })
+
+    it('zip', function() {
+        expect(zip(unique, notUnique)).eql(zipped)
+        expect(zip(empty, notUnique)).eql(empty)
+    })
+
+    it('binaryInsert', function() {
+        const compareFn = (a: number, b: number) => a - b
+        const array: Array<number> = []
+        expect(binaryInsert(array, compareFn, 2)).eql([2])
+        expect(binaryInsert(array, compareFn, 0)).eql([0, 2])
+        expect(binaryInsert(array, compareFn, 4)).eql([0, 2, 4])
+        expect(binaryInsert(array, compareFn, 1)).eql([0, 1, 2, 4])
+        expect(binaryInsert(array, compareFn, 3)).eql([0, 1, 2, 3, 4])
+    })
+
+    it('binarySearch', function() {
+        const compareFn = (a: number, b: number) => a - b
+        const array: Array<number> = [0, 1, 2, 3]
+        expect(binarySearch(array, compareFn, -1)).eq(-1)
+        expect(binarySearch(array, compareFn, 4)).eq(-1)
+        expect(binarySearch(array, compareFn, 0)).eq(0)
+        expect(binarySearch(array, compareFn, 3)).eq(3)
+        expect(binarySearch(array, compareFn, 2)).eq(2)
     })
 })

@@ -1,6 +1,6 @@
 import { describe, it } from 'mocha'
 import { expect } from 'chai'
-import { future, isDate, maxDate, minDate } from '../../src/helpers/date'
+import { future, isDate, before, after } from '../../src/helpers/date'
 
 describe('date', function() {
     const date = new Date()
@@ -25,13 +25,13 @@ describe('date', function() {
         expect(isDate(false)).eq(false)
     })
 
-    it('maxDate', function() {
-        expect(maxDate(year, month)).eq(false)
-        expect(maxDate(second, month)).eq(true)
+    it('before', function() {
+        expect(before(year, month)).eq(false)
+        expect(before(second, month)).eq(true)
     })
 
-    it('minDate', function() {
-        expect(minDate(month, year)).eq(false)
-        expect(minDate(month, second)).eq(true)
+    it('after', function() {
+        expect(after(month, year)).eq(false)
+        expect(after(month, second)).eq(true)
     })
 })

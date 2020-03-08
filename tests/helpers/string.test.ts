@@ -1,6 +1,6 @@
 import { describe, it } from 'mocha'
 import { expect } from 'chai'
-import { camelToSnake, generateId, isAlpha, isAlphanumeric, isDateString, isEmail, isLowerCase, isString, isUpperCase, snakeToCamel } from '../../src/helpers/string'
+import { camelToSnake, generateId, isAlpha, isAlphanumeric, isDateString, isEmail, isLowerCase, isString, isUpperCase, snakeToCamel, levenshteinDistance } from '../../src/helpers/string'
 
 describe('string', function() {
     const snakeCase = 'key_name'
@@ -16,7 +16,7 @@ describe('string', function() {
     })
 
     it('generateId', function() {
-        const length = 25
+        const length = 100
         const id = generateId(length)
         expect(isString(id)).eq(true)
         expect(isAlpha(id)).eq(false)
@@ -66,5 +66,10 @@ describe('string', function() {
 
     it('snakeToCamel', function() {
         expect(snakeToCamel(snakeCase)).eq(camelCase)
+    })
+
+    it('levenshteinDistance', function() {
+        expect(levenshteinDistance(snakeCase, camelCase)).eq(2)
+        expect(levenshteinDistance('', snakeCase)).eq(snakeCase.length)
     })
 })

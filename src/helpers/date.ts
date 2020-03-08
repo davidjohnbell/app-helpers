@@ -19,10 +19,10 @@ export function isDate(value: unknown): value is Date {
     return value instanceof Date && !isNaN(value.getTime())
 }
 
-export function minDate(date: unknown, minDate: Date): boolean {
-    return date instanceof Date && date.getTime() >= minDate.getTime()
+export function after(date: Date, minDate: Date): boolean {
+    return date.getTime() >= minDate.getTime()
 }
 
-export function maxDate(date: unknown, maxDate: Date): boolean {
-    return date instanceof Date && date.getTime() <= maxDate.getTime()
+export function before(date: Date, maxDate: Date): boolean {
+    return date.getTime() <= maxDate.getTime()
 }
