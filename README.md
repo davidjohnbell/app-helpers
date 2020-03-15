@@ -13,6 +13,12 @@ There are four top level namespaces `Enums`, `Helpers`, `Structures`, and `Utils
 * http
     * HttpStatus
     * HttpMethod
+    * HttpHeader
+* primitive
+    * Primitive
+    * Typeof
+    * Operator
+    * KeyCode
 
 ### Helpers
 

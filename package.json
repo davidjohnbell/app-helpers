@@ -1,11 +1,14 @@
 {
     "name": "utils-and-helpers",
-    "version": "2.0.2",
+    "version": "2.1.0",
     "description": "common utilities that can be used across a variety of projects",
     "author": "davidjohnbell",
     "license": "MIT",
     "keywords": [
-        "utils"
+        "utils",
+        "helpers",
+        "enums",
+        "validate"
     ],
     "main": "main.js",
     "types": "main.d.ts",
